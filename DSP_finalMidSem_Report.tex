@@ -1,0 +1,177 @@
+
+
+%
+\documentclass[journal]{IEEEtran}
+\usepackage{blindtext}
+\usepackage{graphicx}
+
+
+
+
+
+
+
+% *** GRAPHICS RELATED PACKAGES ***
+%
+\ifCLASSINFOpdf
+  % \usepackage[pdftex]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../pdf/}{../jpeg/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+  % \usepackage[dvips]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../eps/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.eps}
+\fi
+
+
+
+
+
+
+
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+
+\begin{document}
+%
+% paper title
+% can use linebreaks \\ within to get better formatting as desired
+\title{Facial Expression Recognition from Static Images}
+%
+
+
+\author{Honey~Gadhiya,
+        Jay~Shah,
+        Nishi~Shah
+        and Twinkle~Vaghela% <-this % stops a space
+}
+
+
+
+
+
+% make the title area
+\maketitle
+
+
+\begin{abstract}
+%\boldmath
+\ This paper introduces recent advances in facial expression analysis and recognition. This paper describes the general structure of automatic facial expression analysis (AFEA) systems and describes the problem space for expression analysis. This space includes multiple dimensions: level of description, individual differences in subjects, transitions among expressions, intensity of facial expression, deliberate versus spontaneous expression, head orientation and scene complexity, image acquisition and resolution, reliability of ground truth, databases, and the relation to other facial behaviors or nonfacial behaviors. It also discusses the recent advances in the techniques for face acquisition, facial data extraction and representation, facial expression recognition, and multimodal expression analysis
+\end{abstract}
+% IEEEtran.cls defaults to using nonbold math in the Abstract.
+% This preserves the distinction between vectors and scalars. However,
+% if the journal you are submitting to favors bold math in the abstract,
+% then you can use LaTeX's standard command \boldmath at the very start
+% of the abstract to achieve this. Many IEEE journals frown on math
+% in the abstract anyway.
+
+% Note that keywords are not normally used for peerreview papers.
+\begin{IEEEkeywords}
+Automatic Facial Expression Analysis (AFEA)
+\end{IEEEkeywords}
+
+
+\IEEEpeerreviewmaketitle
+
+
+
+\section{Introduction}
+\ Facial expressions provide information not only about affective state, but also about cognitive activity, temperament and personality, truthfulness, and psychopathology. Facial expressions are the facial changes in response to a person’s internal emotional states, intentions, or social communications. Recent advances have been made in computer vision for automatic recognition of facial expressions in images. The approaches that have been explored include analysis of facial motion measurements of the shapes of facial features and their spatial arrangements holistic spatial pattern analysis using techniques based on principal component analysis gray level pattern analysis using local spatial filters and methods for relating face images to physical models of the facial skin and musculature. For emotion analysis, higher level knowledge is required. For example, although facial expressions can convey emotion, they can also express intention, cognitive processes, physical effort, or other intra or interpersonal meanings. \\ \\
+The general approach to automatic facial expression analysis (AFEA) consists of three steps:\\
+a. Face acquisition:- Face Detector \\
+b. Facial data extraction and representation \\
+c. Facial expression recognition.\\ \\
+Face acquisition is a processing stage to automatically find the face region for the input images or sequences. It can be a detector to detect face for each frame or just detect face in the first frame and then track the face in the remainder of the video sequence. To handle large head motion, the head finder, head tracking, and pose estimation can be applied to a facial expression analysis system. After the face is located, the next step is to extract and represent the facial changes caused by facial expressions. In facial feature extraction for expression analysis, there are mainly two types of approaches: geometric feature-based methods and appearance-based methods. The geometric facial features present the shape
+and locations of facial components (including mouth, eyes, brows, nose, etc.). The facial components or facial feature points are extracted to form a feature vector that represents the face geometry. With appearance-based methods, image filters, such as Gabor wavelets, are applied to either the whole-face or specific regions in a face image to extract a feature vector. Depending on the different facial feature extraction methods, the effects of in-plane head rotation and different scales of the faces can be eliminated by face normalization before the feature extraction or by feature representation before the step of expression recognition.
+Facial expression recognition is the last stage of AFEA systems. The facial
+changes can be identified as facial action units or prototypic emotional expressions. This paper also discusses about a novel method for fast and accurate extraction of facial feature points such as pupils, nostrils, mouth edges, and the like from dynamic images,with the purpose of face recognition.
+{\includegraphics[width=3in,height=4in,clip,keepaspectratio]{theo2}}
+\begin{center}
+Fig:Steps for Expression detection
+\end{center}
+
+
+\section{Literature Review}
+\textbf {Rowley et al. [78]} : In this paper they have developed a neural network based system to detect frontal-view face. Their method runs real-time and can handle varying head positions. In 2D Image-Based Method the head detection uses the smoothed silhouette of the foreground object as segmented using background subtraction and computing the negative curvature minima (NCM) points of the silhouette.
+ Two types of facial features can be extracted: geometric features and appearance features. Geometric features present the shape and locations of facial components (including mouth, eyes, brows, and nose). The facial components or facial feature points are extracted to form a feature vector that represents the face geometry. Appearance features present the appearance (skin texture) changes of the face, such as wrinkles and furrows. The appearance features can be extracted on either the whole-face or specific regions in a face image.\\ \\
+ Object Detection using Haar feature-based cascade classifiers is an effective object detection method proposed by Paul Viola and Michael Jones in their paper, "Rapid Object Detection using a Boosted Cascade of Simple Features" in 2001. It is a machine learning based approach where a cascade function is trained from a lot of positive and negative images. It is then used to detect objects in other images.
+ Here we will work with face detection. Initially, the algorithm needs a lot of positive images (images of faces) and negative images (images without faces) to train the classifier. Then we need to extract features from it. For this, haar features shown in below image are used. They are just like our convolutional kernel.\\ \\
+ After the face is obtained, the next step is to extract facial features. Two types of features can be extracted: geometric features and appearance features. Geometric features present the shape and locations of facial components (including mouth, eyes, brows, and nose). The facial components or facial feature points are extracted to form a feature vector that represents the face geometry. The appearance features present the appearance (skin texture) changes of the face, such as wrinkles and furrows. The appearance features can be extracted on either the whole-face or specific regions in a face image. To recognize facial expressions, an AEFA system can use geometric features only, appearance features only, or hybrid features (both geometric and appearance features). The research shows that using hybrid features can achieve better results for some expressions. 
+
+{\includegraphics[width=3in,height=4in,clip,keepaspectratio]{theo1}}
+\begin{center}
+Fig:Types of Expressions
+\end{center}
+
+
+
+
+\section{Results}
+In the initial implementation we first need to implement the face recognition algorithm through Haar Cascade method in OpenCV Language. \\ \\
+{\includegraphics[width=3in,height=4in,clip,keepaspectratio]{Jay1}}
+\begin{center}
+Fig1:Face Recognition
+\end{center}
+
+After the face recognition we need to capture the expression of a person through the PyStasm method in which Active Shape Models concept is used. In this method it rotates the image and draws a background around it. After the initial capturing of face we would detect the features on the face. For e.g. (Eyes, Forehead, Nostrils, Lips etc). After the detection we would draw a background around the features of the face via dotted lines. \\ \\
+{\includegraphics[width=3in,height=4in,clip,keepaspectratio]{Jay2}}
+\begin{center}
+Fig2:Feature Detection
+\end{center}
+
+
+\section{Discussions, Future work and implementations}
+As discussed with Sir, we would be implementing the Emotion Detection through the feature extraction of eyes and also with the help of lips to some extent but the robustness and accuracy is yet to be improved.\\ \\
+The first two steps of the project were successfully implemented bu our group.\\
+1. Facial Detection\\ 2. Facial feature extraction\\ \\
+From this point our focus would be on the 3rd and final step of the Project i.e. Emotion detection(Recognition) from the image. For this we would be considering one of the two methods mentioned below
+1. EigenFaces Method (Principal Component Analysis)\\
+2. Neural Network Method
+
+
+
+% Can use something like this to put references on a page
+% by themselves when using endfloat and the captionsoff option.
+\ifCLASSOPTIONcaptionsoff
+  \newpage
+\fi
+
+
+\begin{thebibliography}{1}
+\bibitem{ref:1}
+Yingli Tian,Takeo Kanade,Jeffrey F.Cohn Facial Expression Recognition In Research Gate January 2011.
+
+\bibitem{ref:2}
+Anwar Saeed,Ayoub Al-Hamadi,Robert Niese,Moftah Elzobi Frame-Based Facial Expression Recognition Using Geometrical Features,Otto-von-Guericke-University, April 2014
+
+\bibitem{ref:3}
+Deepak Ghimire,Joonwhoan Lee Geometric Feature-Based Facial Expression Recognition in Image Sequences Using Multi-Class AdaBoost and Support Vector Machines June 2014. 
+
+\bibitem{ref:4}
+Hamid Sadeghi,Abolghasem-A. Raie,Mohammad-Reza Mohammadi Facial Expression Recognition Using Geometric Normalization and Appearance Representation April 2013 
+
+\bibitem{ref:5}
+http://docs.opencv.org/trunk/d7/d8b/tutorial\textunderscore py\textunderscore face\textunderscore detection.html
+
+\bibitem{ref:6}
+http://stackoverflow.com/questions/18640804/facial-expression-classification-in-real-time-using-svm
+
+\end{thebibliography}
+
+
+
+% that's all folks
+\end{document}
+
+
