@@ -1,0 +1,155 @@
+
+
+%
+\documentclass[journal]{IEEEtran}
+\usepackage{blindtext}
+\usepackage{graphicx}
+
+
+
+
+
+
+
+% *** GRAPHICS RELATED PACKAGES ***
+%
+\ifCLASSINFOpdf
+  % \usepackage[pdftex]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../pdf/}{../jpeg/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+  % \usepackage[dvips]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../eps/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.eps}
+\fi
+
+
+
+
+
+
+
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+
+\begin{document}
+%
+% paper title
+% can use linebreaks \\ within to get better formatting as desired
+\title{Facial Expression Recognition from Static Images}
+%
+
+
+\author{Honey~Gadhiya,
+        Jay~Shah,
+        Nishi~Shah
+        and Twinkle~Vaghela% <-this % stops a space
+}
+
+
+
+
+
+% make the title area
+\maketitle
+
+
+\begin{abstract}
+%\boldmath
+\ This paper introduces recent advances in facial expression analysis and recognition. This paper describes the general structure of automatic facial expression analysis (AFEA) systems and describes the problem space for expression analysis. This space includes multiple dimensions: level of description, individual differences in subjects, transitions among expressions, intensity of facial expression, deliberate versus spontaneous expression, head orientation and scene complexity, image acquisition and resolution, reliability of ground truth, databases, and the relation to other facial behaviors or nonfacial behaviors. It also discusses the recent advances in the techniques for face acquisition, facial data extraction and representation, facial expression recognition, and multimodal expression analysis
+\end{abstract}
+% IEEEtran.cls defaults to using nonbold math in the Abstract.
+% This preserves the distinction between vectors and scalars. However,
+% if the journal you are submitting to favors bold math in the abstract,
+% then you can use LaTeX's standard command \boldmath at the very start
+% of the abstract to achieve this. Many IEEE journals frown on math
+% in the abstract anyway.
+
+% Note that keywords are not normally used for peerreview papers.
+\begin{IEEEkeywords}
+Automatic Facial Expression Analysis (AFEA)
+\end{IEEEkeywords}
+
+
+\IEEEpeerreviewmaketitle
+
+
+
+\section{Introduction}
+\ Facial expressions provide information not only about affective state, but also about cognitive activity, temperament and personality, truthfulness, and psychopathology. Facial expressions are the facial changes in response to a person’s internal emotional states, intentions, or social communications. Recent advances have been made in computer vision for automatic recognition of facial expressions in images. The approaches that have been explored include analysis of facial motion measurements of the shapes of facial features and their spatial arrangements holistic spatial pattern analysis using techniques based on principal component analysis gray level pattern analysis using local spatial filters and methods for relating face images to physical models of the facial skin and musculature. For emotion analysis, higher level knowledge is required. For example, although facial expressions can convey emotion, they can also express intention, cognitive processes, physical effort, or other intra or interpersonal meanings. \\ \\
+The general approach to automatic facial expression analysis (AFEA) consists of three steps:\\
+a. Face acquisition: -Face Detector \\
+b. Facial data extraction and representation \\
+c. Facial expression recognition.\\ \\
+This paper also discusses about a novel method for fast and accurate extraction of facial feature points such as pupils, nostrils, mouth edges, and the like from dynamic images,with the purpose of face recognition.
+This method is robust to variations of face direction and illumination. Steady extraction of feature points is a difficult task due to variations resulting from the fact that the shape and brightness vary for different individuals, as well as from changes in expression, head movements, illumination, and other influences.\\ \\
+We describe a method for tracking rigid and non-rigid facial motions using a collection of local parameterized optical flow models. While parameterized models of image motion have become popular for the recovery of image motion in rigid scenes, their application to non-rigid and articulated. The approach can be thought of as having low, mid, and high levels. At the low level we take regions corresponding to the face, mouth, eyebrows, and eyes and model the rigid and non-rigid motions of these regions using a collection of parametrized flow models.
+
+\section{Literature Review}
+
+\textbf{Yingli Tian, Takeo Kanade, and Jeffrey F. Cohn}[1] : In this paper they have developed a neural network based system to detect frontal-view face. Their method runs real-time and can handle varying head positions. In 3D Image-Based Method many systems employ a 3D model based method to estimate head pose. An active appearance model (AAM) method is used to automatically map the cylindrical head model to the face region, which is detected by face detection, as the initial appearance template. In 2D Image-Based Method the head detection uses the smoothed silhouette of the foreground object as segmented using background subtraction and computing the negative curvature minima (NCM) points of the silhouette.
+ Two types of facial features can be extracted: geometric features and appearance features. Geometric features present the shape and locations of facial components (including mouth, eyes, brows, and nose). The facial components or facial feature points are extracted to form a feature vector that represents the face geometry. Appearance features present the appearance (skin texture) changes of the face, such as wrinkles and furrows. The appearance features can be extracted on either the whole-face or specific regions in a face image. Many classifiers have been applied to expression recognition such as neural network (NN), support vector machines (SVM), linear discriminant analysis (LDA), K-nearest neighbor, multinomial logistic ridge regression (MLR), hidden Markov models (HMM), tree augmented naive Bayes, RankBoost, and others. 
+
+\vspace{3mm}
+
+\textbf{Anwar Saeed, Ayoub Al-Hamadi, Robert Niese, and Moftah Elzobi}[2] describes how to improve human-computer interaction by building an efficient approach for human emotion recognition.In this approach human face is detected using a well-trained Haar cascade classifier.This classifier employs the Haar-like features, which are defined as the ratio of intensities taken from adjacent rectangles.Then eight facial points within a box returned by the employed face detector :  two points for eyebrows, two points for eye’s corner,four points for mouth.Geometrical features describe relative position of the facial points to each other.Six distances are extracted from the eight points.Then by applying Point Distribution Model(PDM) and Support Vector Machine(SVM) to extracted features and with the helt of K-Nearest Neighbour the facial expression is recognized.
+
+
+
+
+\section{Results}
+
+
+
+\section{Future work and implementations}
+
+
+%
+
+
+\appendices
+\section{Proof of the First Zonklar Equation}
+Some text for the appendix.
+
+% use section* for acknowledgement
+\section*{Acknowledgment}
+
+
+The authors would like to thank...
+
+
+% Can use something like this to put references on a page
+% by themselves when using endfloat and the captionsoff option.
+\ifCLASSOPTIONcaptionsoff
+  \newpage
+\fi
+
+
+\begin{thebibliography}{1}
+
+\bibitem{IEEEhowto:kopka}
+H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
+  0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
+
+\end{thebibliography}
+
+
+\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{picture}}]{John Doe}
+\blindtext
+\end{IEEEbiography}
+
+% that's all folks
+\end{document}
+
+
